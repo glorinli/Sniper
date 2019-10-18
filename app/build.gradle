@@ -1,10 +1,31 @@
+repositories {
+    maven {
+        url LOCAL_MAVEN_REPO_URL
+    }
+}
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+
+        maven {
+            url LOCAL_MAVEN_REPO_URL
+        }
+    }
+    dependencies {
+        classpath 'com.glorinli:sniper:0.0.1-SNAPSHOT'
+    }
+}
+
 apply plugin: 'com.android.application'
+apply plugin: 'com.glorinli.sniper'
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.glorinli.sniper"
+        applicationId "com.glorinli.sniperexample"
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
@@ -16,6 +37,22 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
     }
 }
 
