@@ -1,10 +1,10 @@
-package com.glorinli.sniperexample;
+package xyz.glorin.sniperexample;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.glorinli.sniper.lib.annotations.SniperMethodTrack;
+import xyz.glorin.sniper.lib.annotations.SniperMethodTrack;
 
 
 public class MainActivity extends AppCompatActivity {

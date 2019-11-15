@@ -14,18 +14,18 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.glorinli:sniper:0.0.1-SNAPSHOT'
+        classpath 'xyz.glorin:sniper:0.0.1-SNAPSHOT'
     }
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.glorinli.sniper'
+apply plugin: 'xyz.glorin.sniper'
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.glorinli.sniperexample"
+        applicationId "xyz.glorin.sniperexample"
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 1

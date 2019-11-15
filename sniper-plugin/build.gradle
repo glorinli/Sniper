@@ -18,7 +18,7 @@ repositories {
 uploadArchives {
     repositories.mavenDeployer {
         repository(url: uri(LOCAL_MAVEN_REPO_URL))
-        pom.groupId = 'com.glorinli'
+        pom.groupId = 'xyz.glorin'
         pom.artifactId = 'sniper'
         pom.version = '0.0.1-SNAPSHOT'
     }

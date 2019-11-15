@@ -1,4 +1,4 @@
-package com.glorinli.sniper.plugin;
+package xyz.glorin.sniper.plugin;
 
 import com.android.build.api.transform.DirectoryInput;
 import com.android.build.api.transform.Format;
