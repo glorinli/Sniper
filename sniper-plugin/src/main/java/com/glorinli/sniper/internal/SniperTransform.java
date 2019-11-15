@@ -61,10 +61,12 @@ public class SniperTransform extends Transform {
         Collection<TransformInput> inputs = transformInvocation.getInputs();
         for (TransformInput input : inputs) {
             for (JarInput jarInput : input.getJarInputs()) {
+                System.out.println("Find jar input: " + jarInput.getName());
                 transformJar(transformInvocation, jarInput);
             }
 
             for (DirectoryInput directoryInput : input.getDirectoryInputs()) {
+                System.out.println("Find directory input: " + directoryInput.getName());
                 transformDirectory(transformInvocation, directoryInput);
             }
         }
