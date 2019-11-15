@@ -54,6 +54,10 @@ public class SniperTransform extends Transform {
     public void transform(TransformInvocation transformInvocation) throws TransformException, InterruptedException, IOException {
         super.transform(transformInvocation);
 
+        if (!isIncremental()) {
+            transformInvocation.getOutputProvider().deleteAll();
+        }
+
         Collection<TransformInput> inputs = transformInvocation.getInputs();
         for (TransformInput input : inputs) {
             for (JarInput jarInput : input.getJarInputs()) {
@@ -85,13 +89,15 @@ public class SniperTransform extends Transform {
             traverseDirectory(tempDir, dir, modifiedMap, dir.getAbsolutePath() + File.separator);
 
             // Copy dir
-            FileUtils.copyDirectory(tempDir, dir);
+//            FileUtils.copyDirectory(tempDir, dir);
             for (Map.Entry<String, File> entry : modifiedMap.entrySet()) {
                 File target = new File(dest.getAbsolutePath() + File.separator +
                         entry.getKey().replace('.', File.separatorChar) + ".class");
                 if (target.exists()) {
                     target.delete();
                 }
+
+                System.out.println("Copy to target: " + target.getAbsolutePath());
 
                 // Copy class file
                 FileUtils.copyFile(entry.getValue(), target);
@@ -137,6 +143,8 @@ public class SniperTransform extends Transform {
      * Transform jar classes
      */
     private void transformJar(TransformInvocation invocation, JarInput input) throws IOException {
+        System.out.println("transformJar: " + input.getName());
+
         File tempDir = invocation.getContext().getTemporaryDir();
 
         String destName = input.getFile().getName();

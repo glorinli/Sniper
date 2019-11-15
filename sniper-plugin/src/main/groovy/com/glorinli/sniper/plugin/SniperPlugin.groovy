@@ -15,7 +15,7 @@ class SniperPlugin implements Plugin<Project> {
             implementation 'com.glorinli:sniper:0.0.1-SNAPSHOT'
         }
 
-        project.getExtensions().findByType(AppExtension)
+        project.getExtensions().findByType(AppExtension.class)
                 .registerTransform(new SniperTransform())
     }
 }
