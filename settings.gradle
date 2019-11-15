@@ -1,2 +1,2 @@
-include ':app', ':sniper-plugin'
+include ':app', ':sniper-plugin', ':sniper-lib'
 rootProject.name='Sniper'

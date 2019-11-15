@@ -1,4 +1,4 @@
-package com.glorinli.sniper.annotations;
+package com.glorinli.sniper.lib.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

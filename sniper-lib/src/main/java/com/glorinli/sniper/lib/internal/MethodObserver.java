@@ -1,4 +1,4 @@
-package com.glorinli.sniper.internal;
+package com.glorinli.sniper.lib.internal;
 
 /**
  * Method enter and exit observer

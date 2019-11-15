@@ -1,4 +1,4 @@
-package com.glorinli.sniper.internal;
+package com.glorinli.sniper.lib.internal;
 
 import java.util.ArrayList;
 import java.util.HashMap;

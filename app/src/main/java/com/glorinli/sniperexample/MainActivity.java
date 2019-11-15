@@ -4,7 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.glorinli.sniper.annotations.SniperMethodTrack;
+import com.glorinli.sniper.lib.annotations.SniperMethodTrack;
+
 
 public class MainActivity extends AppCompatActivity {
 
