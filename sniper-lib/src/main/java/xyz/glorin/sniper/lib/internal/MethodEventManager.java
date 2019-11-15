@@ -42,6 +42,18 @@ public class MethodEventManager {
         observers.add(observer);
     }
 
+    public void unregisterMethodObserver(MethodObserver observer) {
+        if (observer == null) {
+            return;
+        }
+
+        for (Map.Entry<String, List<MethodObserver>> entry : mObserverMap.entrySet()) {
+            if (entry.getValue() != null) {
+                entry.getValue().remove(observer);
+            }
+        }
+    }
+
     /**
      * Notify observers that the method is entering
      * @param tag

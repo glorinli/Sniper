@@ -13,6 +13,9 @@ import com.android.build.gradle.internal.pipeline.TransformManager;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassVisitor;
+import org.objectweb.asm.ClassWriter;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -192,7 +195,10 @@ public class SniperTransform extends Transform {
     }
 
     private byte[] modifyClass(byte[] sourceBytes) {
-        // TODO
-        return null;
+        ClassReader classReader = new ClassReader(sourceBytes);
+        ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+        ClassVisitor visitor = new SniperClassVisitor(classWriter);
+        classReader.accept(visitor, ClassReader.EXPAND_FRAMES);
+        return classWriter.toByteArray();
     }
 }
