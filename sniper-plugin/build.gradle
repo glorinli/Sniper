@@ -1,6 +1,10 @@
 apply plugin: 'groovy'
 apply plugin: 'java'
-apply plugin: 'maven'
+apply from: 'jcenter.gradle'
+
+if (USE_MAVEN_LOCAL) {
+    apply from: 'mvn.gradle'
+}
 
 dependencies {
     implementation gradleApi()
@@ -13,13 +17,4 @@ repositories {
     mavenCentral()
     jcenter()
     google()
-}
-
-uploadArchives {
-    repositories.mavenDeployer {
-        repository(url: uri(LOCAL_MAVEN_REPO_URL))
-        pom.groupId = 'xyz.glorin'
-        pom.artifactId = 'sniper'
-        pom.version = '0.0.1-SNAPSHOT'
-    }
 }

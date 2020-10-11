@@ -11,7 +11,7 @@ class SniperPlugin implements Plugin<Project> {
         println("===========SniperPlugin begin===============")
 
         project.dependencies {
-            implementation 'xyz.glorin:sniperlib:0.0.1-SNAPSHOT'
+            implementation 'xyz.glorin:sniper-lib:0.0.1'
         }
 
         project.getExtensions().findByType(AppExtension.class)

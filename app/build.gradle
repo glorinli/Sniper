@@ -1,6 +1,8 @@
 repositories {
-    maven {
-        url LOCAL_MAVEN_REPO_URL
+    if (USE_MAVEN_LOCAL) {
+        maven {
+            url LOCAL_MAVEN_REPO_URL
+        }
     }
 }
 
@@ -9,12 +11,14 @@ buildscript {
         google()
         jcenter()
 
-        maven {
-            url LOCAL_MAVEN_REPO_URL
+        if (USE_MAVEN_LOCAL) {
+            maven {
+                url LOCAL_MAVEN_REPO_URL
+            }
         }
     }
     dependencies {
-        classpath 'xyz.glorin:sniper:0.0.1-SNAPSHOT'
+        classpath "xyz.glorin:sniper:${SNIPER_VERSION}"
     }
 }
 

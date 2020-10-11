@@ -1,5 +1,9 @@
 apply plugin: 'java-library'
-apply plugin: 'maven'
+apply from: 'jcenter.gradle'
+
+if (USE_MAVEN_LOCAL) {
+    apply from: 'mvn.gradle'
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -7,21 +11,3 @@ dependencies {
 
 sourceCompatibility = "8"
 targetCompatibility = "8"
-
-uploadArchives {
-    repositories.mavenDeployer {
-        repository(url: uri(LOCAL_MAVEN_REPO_URL))
-        pom.groupId = 'xyz.glorin'
-        pom.artifactId = 'sniperlib'
-        pom.version = '0.0.1-SNAPSHOT'
-    }
-}
-
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-artifacts {
-    archives sourcesJar
-}
