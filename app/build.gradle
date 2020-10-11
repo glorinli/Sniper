@@ -18,7 +18,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath "xyz.glorin:sniper:${SNIPER_VERSION}"
+        classpath "xyz.glorin:sniper:0.0.2"
     }
 }
 
